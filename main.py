@@ -1,0 +1,112 @@
+import sys
+import requests
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QGridLayout, QScrollArea, QMainWindow, QHBoxLayout
+from PyQt6.QtGui import QPixmap
+from PyQt6.QtCore import Qt
+from bs4 import BeautifulSoup
+
+class WallhavenUI(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Wallhaven Browser")
+        self.setGeometry(100, 100, 800, 600)
+
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+        self.layout = QVBoxLayout(self.central_widget)
+
+        # Navigation buttons
+        self.nav_buttons_layout = QHBoxLayout()
+        
+        self.home_button = QPushButton("Home", self)
+        self.home_button.clicked.connect(lambda: self.load_wallpapers("https://wallhaven.cc/"))
+        self.nav_buttons_layout.addWidget(self.home_button)
+        
+        self.latest_button = QPushButton("Latest", self)
+        self.latest_button.clicked.connect(lambda: self.load_wallpapers("https://wallhaven.cc/latest"))
+        self.nav_buttons_layout.addWidget(self.latest_button)
+        
+        self.top_button = QPushButton("Top", self)
+        self.top_button.clicked.connect(lambda: self.load_wallpapers("https://wallhaven.cc/toplist"))
+        self.nav_buttons_layout.addWidget(self.top_button)
+        
+        self.random_button = QPushButton("Random", self)
+        self.random_button.clicked.connect(lambda: self.load_wallpapers("https://wallhaven.cc/random"))
+        self.nav_buttons_layout.addWidget(self.random_button)
+
+        self.layout.addLayout(self.nav_buttons_layout)
+
+        # Search input and button
+        self.search_input = QLineEdit(self)
+        self.search_input.setPlaceholderText("Search wallpapers...")
+        self.layout.addWidget(self.search_input)
+
+        self.search_button = QPushButton("Search", self)
+        self.search_button.clicked.connect(self.search_wallpapers)
+        self.layout.addWidget(self.search_button)
+
+        # Scroll area for thumbnails
+        self.scroll_area = QScrollArea(self)
+        self.scroll_area_widget = QWidget()
+        self.scroll_area.setWidget(self.scroll_area_widget)
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_layout = QGridLayout(self.scroll_area_widget)
+        self.layout.addWidget(self.scroll_area)
+
+        # Load initial wallpapers
+        self.load_latest_wallpapers()
+
+    def load_latest_wallpapers(self):
+        self.load_wallpapers("https://wallhaven.cc/latest")
+
+    def search_wallpapers(self):
+        query = self.search_input.text()
+        if query:
+            search_url = f"https://wallhaven.cc/search?q={query}"
+            self.load_wallpapers(search_url)
+
+    def load_wallpapers(self, url):
+        response = requests.get(url)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+            thumbnails = soup.find_all('figure', class_='thumb')
+
+            # Clear existing thumbnails
+            for i in reversed(range(self.scroll_layout.count())):
+                self.scroll_layout.itemAt(i).widget().setParent(None)
+
+            row = 0
+            col = 0
+            for thumb in thumbnails:
+                wallpaper_url = thumb.find('a', class_='preview')['href']
+                img_tag = thumb.find('img')
+                img_src = img_tag['data-src']
+
+                img_data = requests.get(img_src).content
+                pixmap = QPixmap()
+                pixmap.loadFromData(img_data)
+
+                img_label = QLabel(self)
+                img_label.setPixmap(pixmap)
+                img_label.setScaledContents(True)
+                img_label.setFixedSize(300, 200)
+                img_label.mousePressEvent = lambda event, url=wallpaper_url: self.open_wallpaper(url)
+
+                self.scroll_layout.addWidget(img_label, row, col)
+                col += 1
+                if col == 3:
+                    col = 0
+                    row += 1
+        else:
+            print("Failed to retrieve wallpapers.")
+
+    def open_wallpaper(self, url):
+        import webbrowser
+        webbrowser.open(url)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main_window = WallhavenUI()
+    main_window.show()
+    sys.exit(app.exec())
