@@ -1,24 +1,46 @@
-Here's a summary of my project:
+of your Wallhavenui project in the specified format:
 
-**1. Project Name:** Wallhavenui
-**2. Short Description:** A user-friendly web browser-based application that allows users to browse and view wallpapers from the popular Wallhaven website.
-**3. Overall Description:** Wallhavenui is an innovative project that brings the world's most amazing wallpapers right onto your desktop. Built using Python, PyQt6, and BeautifulSoup, this application provides a seamless browsing experience with features like navigation buttons, search input, and scrollable thumbnails of stunning wallpapers. With just one click, users can view their favorite images in high resolution.
-**4. Main Purpose:** I built this to create an engaging way for people to discover new wallpapers and enjoy the visually appealing content that Wallhaven has to offer. This project is perfect for anyone who loves exploring different art styles, backgrounds, or simply wants a fun way to spice up their computer desktop!
-**5. Key Technologies:**
-	* Python 3
-	* PyQt6 for GUI development
-	* BeautifulSoup for web scraping and parsing HTML content
-**6. Unique Features:**
-	- Navigation buttons for easy access to different sections of Wallhaven (Home, Latest, Top, Random)
-	- Search input to find specific wallpapers based on keywords
-	- Scrollable thumbnails with high-resolution image display
-**7. Future Improvements:**
-	- Implementing more advanced search features (e.g., filters by resolution, color palette)
-	- Adding a favorites section for users to save and view their favorite wallpapers
-**8. Personal Notes:** I'm really proud of how Wallhavenui turned out! The scrollable thumbnail feature was particularly challenging but satisfying to implement. I'm thinking about adding more features to enhance the user experience, like a dark mode or support for other image hosting websites.
-**9. GitHub Tags:** wallhaven-ui, PyQt6-project, web-scraper-python, desktop-app-wallpapers, python-gui-development
+1. **Project Name:** Wallhavenui
+2. **Short Description:** A web browser-based application that allows users to browse and search wallpapers from Wallhaven.
+3. **Overall Description:** Wallhavenui is a graphical user interface (GUI) based web browser extension that enables users to access and view wallpapers from the popular image hosting website, Wallhaven. The application features a clean and intuitive design, allowing users to easily navigate through different categories of wallpapers, search for specific images, and open high-resolution versions of their favorite wallpapers in an external browser.
+4. **Main Purpose:** The primary purpose of Wallhavenui is to provide a user-friendly interface for browsing and discovering new wallpapers from Wallhaven, making it easier for users to find and enjoy high-quality images.
 
-# Extractable Variables
-SHORT_DESCRIPTION = "A user-friendly web browser-based application that allows users to browse and view wallpapers from the popular Wallhaven website. 3. Overall Description: Wallhavenui is an innovative project that brings the world's most amazing wallpapers right onto your desktop. Built using Python, PyQt6, and BeautifulSoup, this application provides a seamless browsing experience with features like navigation buttons, search input, and scrollable thumbnails of stunning wallpapers. With just one click, users can view their favorite images in high resolution. 4. Main Purpose: I built this to create an engaging way for people to discover new wallpapers and enjoy the visually appealing content that Wallhaven has to offer. This project is perfect for anyone who loves exploring different art styles, backgrounds, or simply wants a fun way to spice up their computer desktop! 5. Key Technologies: Python 3 PyQt6 for GUI development BeautifulSoup for web scraping and parsing HTML content 6. Unique Features: - Navigation buttons for easy access to different sections of Wallhaven (Home, Latest, Top, Random) - Search input to find specific wallpapers based on keywords - Scrollable thumbnails with high-resolution image display 7. Future Improvements: - Implementing more advanced search features (e.g., filters by resolution, color palette) - Adding a favorites section for users to save and view their favorite wallpapers 8. Personal Notes: I'm really proud of how Wallhavenui turned out! The scrollable thumbnail feature was particularly challenging but satisfying to implement. I'm thinking about adding more features to enhance the user experience, like a dark mode or support for other image hosting websites. 9. GitHub Tags: wallhaven-ui, PyQt6-project, web-scraper-python, desktop-app-wallpapers, python-gui-development"
-OVERALL_DESCRIPTION = "Wallhavenui is an innovative project that brings the world's most amazing wallpapers right onto your desktop. Built using Python, PyQt6, and BeautifulSoup, this application provides a seamless browsing experience with features like navigation buttons, search input, and scrollable thumbnails of stunning wallpapers. With just one click, users can view their favorite images in high resolution. 4. Main Purpose: I built this to create an engaging way for people to discover new wallpapers and enjoy the visually appealing content that Wallhaven has to offer. This project is perfect for anyone who loves exploring different art styles, backgrounds, or simply wants a fun way to spice up their computer desktop! 5. Key Technologies: Python 3 PyQt6 for GUI development BeautifulSoup for web scraping and parsing HTML content 6. Unique Features: - Navigation buttons for easy access to different sections of Wallhaven (Home, Latest, Top, Random) - Search input to find specific wallpapers based on keywords - Scrollable thumbnails with high-resolution image display 7. Future Improvements: - Implementing more advanced search features (e.g., filters by resolution, color palette) - Adding a favorites section for users to save and view their favorite wallpapers 8. Personal Notes: I'm really proud of how Wallhavenui turned out! The scrollable thumbnail feature was particularly challenging but satisfying to implement. I'm thinking about adding more features to enhance the user experience, like a dark mode or support for other image hosting websites. 9. GitHub Tags: wallhaven-ui, PyQt6-project, web-scraper-python, desktop-app-wallpapers, python-gui-development"
-GITHUB_TAGS = "wallhaven-ui, PyQt6-project, web-scraper-python, desktop-app-wallpapers, python-gui-development"
+5. **Key Technologies:**
+   - PyQt6
+   - requests
+   - BeautifulSoup (bs4)
+   - sys
+   - webbrowser
+
+6. **Unique Features:**
+   - Search function with auto-completion suggestions
+   - Ability to open high-resolution wallpapers in an external browser
+   - Clean and intuitive GUI design
+
+7. **Future Improvements:**
+   - Implementing a favorites or bookmark feature for users to save their favorite wallpapers
+   - Adding support for other image hosting websites
+
+8. **Personal Notes:** The project was developed using Python 3.x and utilizes the PyQt6 library for creating the GUI. It also makes use of the requests library to fetch data from Wallhaven's website.
+
+9. **GitHub Tags:** web-browser, gui-applications, wallhavenui, python-projects
+
+10. **Installable Modules:** sys, webbrowser, requests, PyQt6, bs4
+
+11. **Suggested Folder Names:** src, resources, images, wallpapers
+
+12. **Root Project Folder Name Suggestions:** Wallhavenui, WallpaperBrowser, GUIApp
+
+# Extracted Variables:
+PROJECT_NAME = "Wallhavenui"
+SHORT_DESCRIPTION = "A web browser-based application that allows users to browse and search wallpapers from Wallhaven."
+OVERALL_DESCRIPTION = "Wallhavenui is a graphical user interface (GUI) based web browser extension that enables users to access and view wallpapers from the popular image hosting website, Wallhaven. The application features a clean and intuitive design, allowing users to easily navigate through different categories of wallpapers, search for specific images, and open high-resolution versions of their favorite wallpapers in an external browser."
+MAIN_PURPOSE = "The primary purpose of Wallhavenui is to provide a user-friendly interface for browsing and discovering new wallpapers from Wallhaven, making it easier for users to find and enjoy high-quality images."
+KEY_TECHNOLOGIES = "PyQt6, requests, BeautifulSoup (bs4), sys, webbrowser"
+UNIQUE_FEATURES = "Search function with auto, completion suggestions, Ability to open high, resolution wallpapers in an external browser, Clean and intuitive GUI design"
+FUTURE_IMPROVEMENTS = "Implementing a favorites or bookmark feature for users to save their favorite wallpapers, Adding support for other image hosting websites"
+PERSONAL_NOTES = "The project was developed using Python 3.x and utilizes the PyQt6 library for creating the GUI. It also makes use of the requests library to fetch data from Wallhaven's website."
+GITHUB_TAGS = "web, browser, gui, applications, wallhavenui, python, projects"
+INSTALLABLE_MODULES = "requests, PyQt6, bs4"
+SUGGESTED_FOLDER_NAMES = "src, resources, images, wallpapers"
+ROOT_PROJECT_FOLDER_NAME_SUGGESTIONS = "Wallhavenui, WallpaperBrowser, GUIApp"
